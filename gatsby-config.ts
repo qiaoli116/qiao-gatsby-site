@@ -27,7 +27,17 @@ const config: GatsbyConfig = {
     },
     "gatsby-plugin-mdx",
     'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-plugin-module-resolver',
+      options: {
+        root: './src', // <- will be used as a root dir
+        aliases: {
+          '@components': './components', // <- will become ./src/components
+        }
+      }
+    }
   ],
+
 }
 
 export default config
