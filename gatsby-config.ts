@@ -11,6 +11,22 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `blogs`,
+        path: `${__dirname}/mdx/blogs`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `products`,
+        path: `${__dirname}/mdx/products`,
+      }
+    },
+    "gatsby-plugin-mdx",
+    'gatsby-plugin-postcss',
   ],
 }
 
