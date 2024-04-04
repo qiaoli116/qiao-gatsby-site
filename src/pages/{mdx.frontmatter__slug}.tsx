@@ -4,40 +4,40 @@ import { HeadFC, PageProps, graphql, useStaticQuery } from 'gatsby'
 
 
 type dataType = {
-    mdx: {
-        parent: {
-            sourceInstanceName: string
-        }
-        body: string
-        frontmatter: {
-            date: string
-            slug: string
-            title: string
-        }
+  mdx: {
+    parent: {
+      sourceInstanceName: string
     }
+    body: string
+    frontmatter: {
+      date: string
+      slug: string
+      title: string
+    }
+  }
 }
 const blogSourceInstanceName = "blogs"
 
 const BlogPost: React.FC<PageProps<dataType>> = ({ data, children }) => {
-    const title = data.mdx.frontmatter.title;
-    const date = data.mdx.frontmatter.date;
+  const title = data.mdx.frontmatter.title;
+  const date = data.mdx.frontmatter.date;
 
-    if (data.mdx.parent.sourceInstanceName !== blogSourceInstanceName) {
-        return (
-            <Layout pageTitle="Post not found">
-                <p>Post not find</p>
-            </Layout>
-        )
-    }
+  if (data.mdx.parent.sourceInstanceName !== blogSourceInstanceName) {
     return (
-        <Layout pageTitle="Super Cool Blog Posts">
-            <p>{title}</p>
-            <p>{date}</p>
-            <p>
-                {children}
-            </p>
-        </Layout>
+      <Layout pageTitle="Post not found">
+        <p>Post not find</p>
+      </Layout>
     )
+  }
+  return (
+    <Layout pageTitle="Super Cool Blog Posts">
+      <p>{title}</p>
+      <p>{date}</p>
+      <div>
+        {children}
+      </div>
+    </Layout>
+  )
 }
 export const query = graphql`
     query queryMdx ($id: String) {
