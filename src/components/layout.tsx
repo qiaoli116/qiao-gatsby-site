@@ -6,10 +6,7 @@ interface LayoutProps {
   children: React.ReactNode; // Define the type for the content rendered within the layout
 }
 
-const Layout: React.FC<LayoutProps> = ({ pageTitle, children }: {
-  pageTitle: string,
-  children: React.ReactNode
-}) => {
+const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
   return (
     <div>
       <nav>
