@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { useEffect } from 'react'
 
 interface LayoutProps {
   pageTitle: string; // Define the type for the pageTitle prop
